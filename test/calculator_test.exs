@@ -18,5 +18,9 @@ defmodule StringCalculator.CalculatorTest do
     test "adds two numbers together" do
       assert Calculator.add("4.2,3") == "7.2"
     end
+
+    test "adds multiple numbers together" do
+      assert Calculator.add("4.2,3,5,10.1") == "22.3"
+    end
   end
 end
