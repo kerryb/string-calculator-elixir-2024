@@ -6,6 +6,7 @@ defmodule StringCalculator.Calculator do
     |> String.split(",")
     |> Enum.map(&to_float/1)
     |> Enum.sum()
+    |> Float.round(8)
     |> to_string()
     |> String.replace_suffix(".0", "")
   end
