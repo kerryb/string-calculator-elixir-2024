@@ -1,6 +1,6 @@
 # StringCalculator
 
-**TODO: Add description**
+[String Calculator](https://codingdojo.org/kata/StringCalculator/) kata workthrough.
 
 ## Installation
 
