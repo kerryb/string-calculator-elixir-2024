@@ -22,5 +22,9 @@ defmodule StringCalculator.CalculatorTest do
     test "formats the result as an integer if it has no decimal places" do
       assert Calculator.add("4.2,3,5,10.8") == "23"
     end
+
+    test "allows newlines as separators" do
+      assert Calculator.add("4.2,3,5\n10.8") == "23"
+    end
   end
 end
