@@ -26,5 +26,9 @@ defmodule StringCalculator.CalculatorTest do
     test "allows newlines as separators" do
       assert Calculator.add("4.2,3,5\n10.8") == {:ok, "23"}
     end
+
+    test "returns an error if the input ends in a separator" do
+      assert Calculator.add("1,2,") == {:error, "Number expected but EOF found."}
+    end
   end
 end
