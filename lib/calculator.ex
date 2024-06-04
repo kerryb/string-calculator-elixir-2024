@@ -1,15 +1,22 @@
 defmodule StringCalculator.Calculator do
-  def add(""), do: {:ok, "0"}
-
   def add(input) do
-    {:ok,
-     input
-     |> String.split(~r/[,\n]/)
-     |> Enum.map(&to_float/1)
-     |> Enum.sum()
-     |> Float.round(8)
-     |> to_string()
-     |> String.replace_suffix(".0", "")}
+    cond do
+      input == "" ->
+        {:ok, "0"}
+
+      input =~ ~r/[,\n]$/ ->
+        {:error, "Number expected but EOF found."}
+
+      true ->
+        {:ok,
+         input
+         |> String.split(~r/[,\n]/)
+         |> Enum.map(&to_float/1)
+         |> Enum.sum()
+         |> Float.round(8)
+         |> to_string()
+         |> String.replace_suffix(".0", "")}
+    end
   end
 
   defp to_float(string) do
