@@ -10,5 +10,9 @@ defmodule StringCalculator.CalculatorTest do
     test "returns the number for a single number" do
       assert Calculator.add("42") == "42"
     end
+
+    test "handles single numbers with a decimal point" do
+      assert Calculator.add("4.2") == "4.2"
+    end
   end
 end
