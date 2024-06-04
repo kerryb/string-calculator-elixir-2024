@@ -14,6 +14,11 @@ defmodule StringCalculator.Calculator do
     |> String.split(~r/#{@separator_pattern}/)
     |> Enum.map(&to_float/1)
     |> Enum.sum()
+    |> format_output()
+  end
+
+  defp format_output(float) do
+    float
     |> Float.round(8)
     |> to_string()
     |> String.replace_suffix(".0", "")
