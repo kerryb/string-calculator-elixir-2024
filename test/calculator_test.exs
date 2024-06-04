@@ -22,5 +22,9 @@ defmodule StringCalculator.CalculatorTest do
     test "adds multiple numbers together" do
       assert Calculator.add("4.2,3,5,10.1") == "22.3"
     end
+
+    test "formats the result as an integer if it has no decimal places" do
+      assert Calculator.add("4.2,3,5,10.8") == "23"
+    end
   end
 end
