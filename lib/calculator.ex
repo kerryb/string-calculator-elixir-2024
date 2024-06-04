@@ -3,7 +3,7 @@ defmodule StringCalculator.Calculator do
 
   def add(input) do
     input
-    |> String.split(",")
+    |> String.split(~r/[,\n]/)
     |> Enum.map(&to_float/1)
     |> Enum.sum()
     |> Float.round(8)
