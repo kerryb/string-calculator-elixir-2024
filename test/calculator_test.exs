@@ -6,5 +6,9 @@ defmodule StringCalculator.CalculatorTest do
     test "returns zero for an empty string" do
       assert Calculator.add("") == 0
     end
+
+    test "returns the number for a single number" do
+      assert Calculator.add("42") == 42
+    end
   end
 end
