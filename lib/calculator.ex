@@ -1,16 +1,18 @@
 defmodule StringCalculator.Calculator do
+  @separator_pattern "[,\n]"
+
   def add(input) do
     cond do
       input == "" ->
         {:ok, "0"}
 
-      input =~ ~r/[,\n]$/ ->
+      input =~ ~r/#{@separator_pattern}$/ ->
         {:error, "Number expected but EOF found."}
 
       true ->
         {:ok,
          input
-         |> String.split(~r/[,\n]/)
+         |> String.split(~r/#{@separator_pattern}/)
          |> Enum.map(&to_float/1)
          |> Enum.sum()
          |> Float.round(8)
